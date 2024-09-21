@@ -1,50 +1,34 @@
 package edu.br.infnet.petfriends.pedido.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
 public class Pedido{
-
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String descricao;
     private double valor;
+    private int quantidade;
+    private Long produtoId;
 
     // Construtor padrão
     public Pedido() {}
 
     // Construtor com parâmetros
-    public Pedido(String id, String descricao, double valor) {
+    public Pedido(Long id, String descricao, double valor, int quantidade, Long produtoId) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
+        this.quantidade = quantidade;
+        this.produtoId = produtoId;
     }
 
-    // Getters e Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
 
     @Override
     public String toString() {

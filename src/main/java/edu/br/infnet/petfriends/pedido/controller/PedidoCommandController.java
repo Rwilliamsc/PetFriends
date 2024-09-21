@@ -16,7 +16,7 @@ public class PedidoCommandController {
 
     @PostMapping
     public void criarPedido(@RequestBody CriarPedidoRequest request) {
-        pedidoCommandService.criarPedido(request.getId(), request.getDescricao(), request.getValor());
+        pedidoCommandService.criarPedido(request.getId(), request.getDescricao(), request.getValor(), request.getQuantidade(),request.getProdutoId());
     }
 }
 

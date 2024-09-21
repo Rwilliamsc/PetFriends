@@ -18,12 +18,12 @@ public class PedidoQueryController {
     }
 
     @GetMapping("/{id}/eventos")
-    public List<Object> listarEventos(@PathVariable String id) {
+    public List<Object> listarEventos(@PathVariable Long id) {
         return pedidoQueryService.listarEventos(id);
     }
 
     @GetMapping("/{id}")
-    public Pedido obterPedidoPorId(@PathVariable String id) {
+    public Pedido obterPedidoPorId(@PathVariable Long id) {
         return pedidoQueryService.consultarPedidoPorId(id).orElseThrow(() -> new PedidoNotFoundException(id));
     }
 }

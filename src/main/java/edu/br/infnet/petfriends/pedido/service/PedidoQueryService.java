@@ -21,11 +21,11 @@ public class PedidoQueryService {
         this.eventStore = eventStore;
     }
 
-    public List<Object> listarEventos(String pedidoId) {
-        return eventStore.readEvents(pedidoId).asStream().collect(Collectors.toList());
+    public List<Object> listarEventos(Long pedidoId) {
+        return eventStore.readEvents(pedidoId.toString()).asStream().collect(Collectors.toList());
     }
 
-    public Optional<Pedido> consultarPedidoPorId(String id) {
+    public Optional<Pedido> consultarPedidoPorId(Long id) {
         return pedidoRepository.findById(id);
     }
 }

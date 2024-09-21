@@ -12,8 +12,8 @@ public class PedidoCommandService {
         this.commandGateway = commandGateway;
     }
 
-    public void criarPedido(String id, String descricao, double valor) {
-        CriarPedidoCommand command = new CriarPedidoCommand(id, descricao, valor);
+    public void criarPedido(Long id, String descricao, double valor, int quantidade, Long produtoId) {
+        CriarPedidoCommand command = new CriarPedidoCommand(id, descricao, valor, quantidade, produtoId);
         commandGateway.send(command);
     }
 }

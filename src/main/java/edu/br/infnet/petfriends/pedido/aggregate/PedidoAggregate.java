@@ -14,15 +14,17 @@ import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 public class PedidoAggregate {
 
     @AggregateIdentifier
-    private String id;
+    private Long id;
     private String descricao;
     private double valor;
+    private int quntidade;
+    private Long produtoId;
 
     public PedidoAggregate() { }
 
     @CommandHandler
     public PedidoAggregate(CriarPedidoCommand command) {
-        apply(new PedidoCriadoEvent(command.getId(), command.getDescricao(), command.getValor()));
+        apply(new PedidoCriadoEvent(command.getId(), command.getDescricao(), command.getValor(), command.getQuantidade(), command.getProdutoId()));
     }
 
     @EventSourcingHandler
@@ -30,5 +32,7 @@ public class PedidoAggregate {
         this.id = event.getId();
         this.descricao = event.getDescricao();
         this.valor = event.getValor();
+        this.quntidade = event.getQauntidade();
+        this.produtoId = event.getProdutoId();
     }
 }

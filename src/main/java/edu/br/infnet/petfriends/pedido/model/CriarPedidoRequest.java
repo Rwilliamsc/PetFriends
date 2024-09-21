@@ -1,41 +1,24 @@
 package edu.br.infnet.petfriends.pedido.model;
 
+import lombok.Data;
+
+@Data
 public class CriarPedidoRequest {
 
-    private String id;
+    private Long id;
     private String descricao;
     private double valor;
+    private int quantidade;
+    private Long produtoId;
 
     public CriarPedidoRequest() {}
 
-    public CriarPedidoRequest(String id, String descricao, double valor) {
+    public CriarPedidoRequest(Long id, String descricao, double valor, int quantidade, Long produtoId) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
+        this.quantidade = quantidade;
+        this.produtoId = produtoId;
     }
 
     @Override
